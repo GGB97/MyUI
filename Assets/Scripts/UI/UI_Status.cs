@@ -13,9 +13,9 @@ public class UI_Status : UI_Update
 
     public override void UpdateUI()
     {
-        atkText.text = player.atk.ToString();
-        defText.text = player.def.ToString();
-        healthText.text = player.hp.ToString();
-        critText.text = player.crit.ToString();
+        atkText.text = (player.atk + player.atkEquip).ToString();
+        defText.text = (player.def + player.defEquip).ToString();
+        healthText.text = (player.hp + player.hpEquip).ToString();
+        critText.text = (player.crit + player.critEquip).ToString();
     }
 }

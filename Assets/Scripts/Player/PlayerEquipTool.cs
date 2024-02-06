@@ -20,6 +20,7 @@ public class PlayerEquipTool : MonoBehaviour
 
                 curWeapon = item;
                 curWeapon.isEquiped = true;
+                UIManager.instance.player.GetComponent<PlayerStats>().AddEquipSats(curWeapon);
 
                 break;
 
@@ -29,7 +30,8 @@ public class PlayerEquipTool : MonoBehaviour
                     UnEquip(curArmor);
 
                 curArmor = item;
-                curArmor.isEquiped = true;
+                curArmor.isEquiped = true; 
+                UIManager.instance.player.GetComponent<PlayerStats>().AddEquipSats(curArmor);
 
                 break;
 
@@ -40,6 +42,7 @@ public class PlayerEquipTool : MonoBehaviour
 
                 curTrinkets = item;
                 curTrinkets.isEquiped = true;
+                UIManager.instance.player.GetComponent<PlayerStats>().AddEquipSats(curTrinkets);
 
                 break;
         }
@@ -50,16 +53,19 @@ public class PlayerEquipTool : MonoBehaviour
         switch (item.data.equipAble.type)
         {
             case EquipAbleType.Weapon:
+                UIManager.instance.player.GetComponent<PlayerStats>().SubEquipSats(curWeapon);
                 item.isEquiped = false;
                 curWeapon = null;
                 break;
             case EquipAbleType.Armor:
+                UIManager.instance.player.GetComponent<PlayerStats>().SubEquipSats(curArmor);
                 item.isEquiped = false;
                 curArmor = null;
                 break;
             case EquipAbleType.Trinkets:
+                UIManager.instance.player.GetComponent<PlayerStats>().SubEquipSats(curTrinkets);
                 item.isEquiped = false;
-                curArmor = null;
+                curTrinkets = null;
                 break;
         }
     }

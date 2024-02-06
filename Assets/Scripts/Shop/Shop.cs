@@ -45,5 +45,10 @@ public class Shop : MonoBehaviour
             Debug.Log("소지금액 부족!!");
         }
     }
-    
+
+    public void Sell(ItemObject item)
+    {
+        // player에게서 온 아이템의 경우 인덱스가 지정되어 있을거임. 그래서 그걸로 플레이어의 가방에서
+        // 상점으로 가져오고 아이템의 코스트만큼 플레이어의 소지금을 늘려주면 될듯?
+    }
 }

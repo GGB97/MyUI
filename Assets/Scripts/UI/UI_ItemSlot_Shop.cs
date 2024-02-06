@@ -35,6 +35,8 @@ public class UI_ItemSlot_Shop : MonoBehaviour, UI_Update_Interface
         SetValueText(hpText, itemObj.data.equipAble.hp);
         SetValueText(critText, itemObj.data.equipAble.crit);
 
+        costText.text = itemObj.data.cost.ToString();
+
         btn.onClick.RemoveAllListeners();
         btn.onClick.AddListener(() => Shop.instance.Buy(itemObj));
     }
