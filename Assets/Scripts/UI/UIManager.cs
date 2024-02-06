@@ -53,6 +53,9 @@ public class UIManager : MonoBehaviour
 
     public void OpenPopUp(UI_ItemSlot item)
     {
+        if (item.itemObj == null)
+            return;
+
         switch (item.itemObj.data.type)
         {
             case ItemType.Equipable:
