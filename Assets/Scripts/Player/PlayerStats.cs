@@ -18,4 +18,15 @@ public class PlayerStats : MonoBehaviour
     public float def;
     public float hp;
     public float crit;
+
+
+    public bool Pay(int cost)
+    {
+        if (gold > cost) // 소지금이 지불해야 할 금액보다 많을떄만 차감.
+            gold -= cost;
+        else
+            return false; // 적으면 차감하지 않고 false만 리턴
+
+        return true;
+    }
 }

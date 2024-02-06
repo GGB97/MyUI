@@ -75,7 +75,7 @@ public class UI_EquipPopUp : MonoBehaviour
         else
             UIManager.instance.player.GetComponent<PlayerEquipTool>().Equip(obj);
 
-        UIManager.instance.uiList[1].GetComponent<UI_Update_Interface>().UpdateUI();
+        UIManager.instance.uiList[(int)uiList.inven].GetComponent<UI_Update_Interface>().UpdateUI();
 
         gameObject.SetActive(false);
     }

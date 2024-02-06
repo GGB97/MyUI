@@ -15,6 +15,12 @@ public class UI_Inventory : MonoBehaviour, UI_Update_Interface
         uiSlots = content.GetComponentsInChildren<UI_ItemSlot>();
     }
 
+    private void OnEnable()
+    {
+        if (playerInven != null)
+            UpdateUI();
+    }
+
     void Start()
     {
         playerInven = UIManager.instance.player.GetComponent<Inventory>();

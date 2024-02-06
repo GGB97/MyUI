@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+public enum uiList
+{
+    info,
+    stats,
+    inven,
+    shop
+}
+
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    public GameObject player;
+    public GameObject player; // GameManager가 있다면 거기에 넣고싶지만 지금은 게임매니저를 사용하지 않아서 그냥 여기에다가
 
     [Header("Object")]
     [SerializeField] public List<GameObject> uiList;

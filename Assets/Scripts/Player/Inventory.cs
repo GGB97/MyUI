@@ -16,4 +16,25 @@ public class Inventory : MonoBehaviour
             items[i].index = i;
         }
     }
+
+    public void AddItem(ItemObject item)
+    {
+        items[GetNullIndex()] = item;
+        item.transform.SetParent(UIManager.instance.player.transform, false);
+
+    }
+
+    int GetNullIndex()
+    {
+        int index = 0;
+        foreach (ItemObject item in items)
+        {
+            if (item == null)
+                break;
+            index++;
+        }
+
+        return index;
+    }
+
 }

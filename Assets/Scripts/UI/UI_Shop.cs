@@ -38,6 +38,7 @@ public class UI_Shop : MonoBehaviour, UI_Update_Interface
         {
             while (slots.Count > shop.items.Count)
             {
+                Destroy(slots[slots.Count - 1].gameObject); // 이걸 먼저 하니까 에러나옴
                 slots.RemoveAt(slots.Count - 1);
             }
         }
