@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,10 +39,10 @@ public class UI_EquipPopUp : MonoBehaviour
         nameText.text = obj.data.displayName;
         descText.text = obj.data.description;
 
-        atkText.text = obj.data.equipAble.atk.ToString();
-        defText.text = obj.data.equipAble.def.ToString();
-        hpText.text = obj.data.equipAble.hp.ToString();
-        critText.text = obj.data.equipAble.crit.ToString();
+        SetValueText(atkText, obj.data.equipAble.atk);
+        SetValueText(defText, obj.data.equipAble.def);
+        SetValueText(hpText, obj.data.equipAble.hp);
+        SetValueText(critText, obj.data.equipAble.crit);
 
         // questionText 에 장착 여부에 따른 텍스트 변경
         if (obj.isEquiped)
@@ -59,9 +60,17 @@ public class UI_EquipPopUp : MonoBehaviour
         Debug.Log("init");
     }
 
+    void SetValueText(TMP_Text valueText, float value)
+    {
+        if (value != 0)
+            valueText.text = value.ToString();
+
+        valueText.transform.parent.gameObject.SetActive(value != 0); // +든 -든 0만 아니면 표시하게
+    }
+
     void AddConfirmBtn(ItemObject obj)
     {
-        if(obj.isEquiped)
+        if (obj.isEquiped)
             UIManager.instance.player.GetComponent<PlayerEquipTool>().UnEquip(obj);
         else
             UIManager.instance.player.GetComponent<PlayerEquipTool>().Equip(obj);
