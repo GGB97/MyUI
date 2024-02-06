@@ -9,12 +9,11 @@ public class UI_ItemSlot : MonoBehaviour, UI_Update_Interface
 {
     public ItemObject itemObj;
     Image image;
-    TMP_Text equipTextObj;
+    [SerializeField] GameObject equipTextObj;
 
     private void Awake()
     {
         image = GetComponent<Image>();
-        equipTextObj = GetComponentInChildren<TMP_Text>();
     }
 
     private void Start()
@@ -25,10 +24,14 @@ public class UI_ItemSlot : MonoBehaviour, UI_Update_Interface
     public void UpdateUI()
     {
         if (itemObj == null)
+        {
+            equipTextObj.SetActive(false);
             return;
+        }
 
         image.sprite = itemObj.data.icon;
         image.color = Color.white;
-        //equipTextObj.gameObject.SetActive(itemObj.isEquiped);
+        equipTextObj.SetActive(itemObj.isEquiped);
+
     }
 }

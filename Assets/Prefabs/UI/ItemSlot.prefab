@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemObj: {fileID: 0}
+  equipTextObj: {fileID: 1590102410351806629}
 --- !u!222 &3187675177958583386
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -154,7 +155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3787795987098667318
 RectTransform:
   m_ObjectHideFlags: 0
