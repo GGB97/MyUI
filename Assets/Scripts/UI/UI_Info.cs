@@ -19,6 +19,7 @@ public class UI_Info : UI_Update
     [SerializeField] TMP_Text goldText;
 
     public override void UpdateUI()
+
     {
         jobText.text = player.job;
         nameText.text = player.name;

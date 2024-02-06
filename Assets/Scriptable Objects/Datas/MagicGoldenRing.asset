@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: "\uAE08\uBC18\uC9C0"
   description: "\uBC18\uC9C0\uC785\uB2C8\uB2E4."
+  cost: 2000
   type: 0
   icon: {fileID: 21300000, guid: f66c057114b8725409847a8a8e83a75b, type: 3}
   canStack: 0
