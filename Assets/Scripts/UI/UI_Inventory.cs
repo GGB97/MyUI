@@ -7,7 +7,7 @@ public class UI_Inventory : MonoBehaviour, UI_Update_Interface
 {
     [SerializeField] GameObject content;
     UI_ItemSlot[] uiSlots;
-
+    
     Inventory playerInven;
 
     void Awake()
@@ -26,13 +26,15 @@ public class UI_Inventory : MonoBehaviour, UI_Update_Interface
     {
         for (int i = 0; i < uiSlots.Length; i++)
         {
-            uiSlots[i].index = playerInven.items[i].index;
+            //uiSlots[i].itemObj.index = playerInven.items[i].index;
+            uiSlots[i].itemObj = playerInven.items[i];
 
             if(playerInven.items[i].data != null)
             {
-                uiSlots[i].data = playerInven.items[i].data;
-                uiSlots[i].UpdateUI();
+                uiSlots[i].itemObj.data = playerInven.items[i].data;
             }
+
+            uiSlots[i].UpdateUI();
         }
     }
 }

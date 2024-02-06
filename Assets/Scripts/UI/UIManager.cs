@@ -10,8 +10,11 @@ public class UIManager : MonoBehaviour
     public GameObject player;
 
     [Header("Object")]
-    [SerializeField] List<GameObject> uiList;
+    [SerializeField] public List<GameObject> uiList;
     [SerializeField] GameObject btnGroup;
+
+    [Header("PopUp UI")]
+    [SerializeField] GameObject equipPopUpUI;
 
     private void Awake()
     {
@@ -38,5 +41,24 @@ public class UIManager : MonoBehaviour
         obj.SetActive(false);
 
         btnGroup.SetActive(true);
+    }
+
+    public void OpenPopUp(UI_ItemSlot item)
+    {
+        switch (item.itemObj.data.type)
+        {
+            case ItemType.Equipable:
+                EquipPopUp(item);
+                break;
+            case ItemType.Consumable:
+                break;
+        }
+    }
+
+    void EquipPopUp(UI_ItemSlot item)
+    {
+        equipPopUpUI.SetActive(true);
+
+        equipPopUpUI.GetComponent<UI_EquipPopUp>().Init(item.itemObj);
     }
 }
